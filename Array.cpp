@@ -7,14 +7,14 @@ using namespace std;
 
 const int DIM = 50;
 
-// Funzione per generare l'array
+// Function to populate the array with random numbers
 void generaArray(int array[]) {
     for(int i = 0; i < DIM; i++) {
         array[i] = rand() % 100 + 1;
     }
 }
 
-// Funzione per calcolare la media
+// Function to calculate the arithmetic mean
 double calcolaMedia(int array[]) {
     double somma = 0;
     for(int i = 0; i < DIM; i++) {
@@ -23,7 +23,7 @@ double calcolaMedia(int array[]) {
     return somma / DIM;
 }
 
-// Funzione per trovare il massimo
+// Function to find the maximum value
 int trovaMassimo(int array[]) {
     int max = array[0];
     for(int i = 1; i < DIM; i++) {
@@ -34,7 +34,7 @@ int trovaMassimo(int array[]) {
     return max;
 }
 
-// Funzione per trovare il minimo
+// Function to find the minimum value
 int trovaMinimo(int array[]) {
     int min = array[0];
     for(int i = 1; i < DIM; i++) {
@@ -45,11 +45,11 @@ int trovaMinimo(int array[]) {
     return min;
 }
 
-// Funzione per valori vicini alla media
+// Function to display values close to the mean
 void valoriViciniMedia(int array[]) {
     double media = calcolaMedia(array);
-    cout << "Media: " << media << endl;
-    cout << "Valori vicini alla media:" << endl;
+    cout << "Mean: " << media << endl;
+    cout << "Values close to the mean:" << endl;
     
     bool trovati = false;
     for(int i = 0; i < DIM; i++) {
@@ -59,21 +59,21 @@ void valoriViciniMedia(int array[]) {
         }
     }
     if(!trovati) {
-        cout << "Nessun valore trovato";
+        cout << "No matching values found";
     }
     cout << endl;
 }
 
-// Funzione per calcolare la moda
+// Function to calculate the mode (most frequent value)
 int calcolaModa(int array[]) {
-    int frequenze[101] = {0}; // Array per contare le frequenze
+    int frequenze[101] = {0}; // Frequency array to count occurrences
     
-    // Conta le occorrenze
+    // Count occurrences of each number
     for(int i = 0; i < DIM; i++) {
         frequenze[array[i]]++;
     }
     
-    // Trova il valore più frequente
+    // Identify the most frequent value
     int moda = 1;
     int maxFreq = frequenze[1];
     
@@ -87,17 +87,17 @@ int calcolaModa(int array[]) {
     return moda;
 }
 
-// Funzione per stampare il menu
+// Function to display the user menu
 void stampaMenu() {
     cout << "\n=== MENU ===" << endl;
-    cout << "1. Calcola la media" << endl;
-    cout << "2. Visualizza il massimo" << endl;
-    cout << "3. Visualizza il minimo" << endl;
-    cout << "4. Rigenera l'array" << endl;
-    cout << "5. Valori vicini alla media" << endl;
-    cout << "6. Calcola la moda" << endl;
-    cout << "7. Esci" << endl;
-    cout << "Scelta: ";
+    cout << "1. Calculate mean" << endl;
+    cout << "2. View maximum value" << endl;
+    cout << "3. View minimum value" << endl;
+    cout << "4. Regenerate array" << endl;
+    cout << "5. View values close to the mean" << endl;
+    cout << "6. Calculate mode" << endl;
+    cout << "7. Exit" << endl;
+    cout << "Choice: ";
 }
 
 int main() {
@@ -107,7 +107,7 @@ int main() {
     srand(time(0));
     generaArray(array);
     
-    cout << "Array di " << DIM << " numeri generato (1-100)" << endl;
+    cout << "Array of " << DIM << " random numbers generated (1-100)" << endl;
     
     do {
         stampaMenu();
@@ -115,20 +115,20 @@ int main() {
         
         switch(scelta) {
             case 1:
-                cout << "Media: " << calcolaMedia(array) << endl;
+                cout << "Mean: " << calcolaMedia(array) << endl;
                 break;
                 
             case 2:
-                cout << "Massimo: " << trovaMassimo(array) << endl;
+                cout << "Maximum: " << trovaMassimo(array) << endl;
                 break;
                 
             case 3:
-                cout << "Minimo: " << trovaMinimo(array) << endl;
+                cout << "Minimum: " << trovaMinimo(array) << endl;
                 break;
                 
             case 4:
                 generaArray(array);
-                cout << "Array rigenerato!" << endl;
+                cout << "Array regenerated!" << endl;
                 break;
                 
             case 5:
@@ -136,15 +136,15 @@ int main() {
                 break;
                 
             case 6:
-                cout << "Moda: " << calcolaModa(array) << endl;
+                cout << "Mode: " << calcolaModa(array) << endl;
                 break;
                 
             case 7:
-                cout << "Arrivederci!" << endl;
+                cout << "Goodbye!" << endl;
                 break;
                 
             default:
-                cout << "Scelta non valida!" << endl;
+                cout << "Invalid choice!" << endl;
         }
         
     } while(scelta != 7);
