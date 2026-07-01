@@ -46,13 +46,3 @@ Below is a comprehensive breakdown of each source file included in this reposito
 #### 📄 List.cpp *(Binary Tree)*
 * **Description:** A from-scratch implementation of a non-linear hierarchical data structure (a Binary Tree of integers) complete with depth-first traversal algorithms.
 * **Technical Focus:** Dynamic memory allocation via structure pointers (`Node *`), recursive link establishment (`left`, `right`), and recursive traversal methodologies to print leaf nodes and root components.
-
----
-
-### 🚀 Compilation & Execution Guide
-
-Every source file is fully autonomous and can be compiled individually from the command line using any compiler compliant with standard `C++11` or higher (e.g., `g++`).
-
-1. **Clone the repository locally:**
-   ```bash
-   git clone [https://github.com/AriannaSiniscalchi/cpp-core-programming.git](https://github.com/AriannaSiniscalchi/cpp-core-programming.git)
