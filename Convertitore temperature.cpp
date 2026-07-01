@@ -3,46 +3,46 @@
 
 using namespace std;
 
-// Costanti per i limiti di temperatura
-const double LIMITE_INFERIORE = 0;   // Zero assoluto in Celsius
-const double LIMITE_SUPERIORE = 1000.0;    // Limite superiore
+// Constants defining allowed temperature boundaries
+const double LIMITE_INFERIORE = 0;      // Absolute zero in Celsius (simplified lower bound)
+const double LIMITE_SUPERIORE = 1000.0; // Upper temperature threshold
 
-// Funzione per convertire Celsius in Fahrenheit
+// Function to convert Celsius to Fahrenheit
 double celsiusToFahrenheit(double celsius) {
     return (celsius * 9.0 / 5.0) + 32.0;
 }
 
-// Funzione per validare l'input
+// Function to validate user parameters
 bool validaInput(double inizio, double fine, double passo) {
-    // Controlla i limiti della temperatura iniziale
+    // Validate initial temperature boundaries
     if (inizio < LIMITE_INFERIORE || inizio > LIMITE_SUPERIORE) {
-        cout << "Errore: La temperatura iniziale deve essere tra " 
-             << LIMITE_INFERIORE << "C e " << LIMITE_SUPERIORE << "C" << endl;
+        cout << "Error: Initial temperature must be between " 
+             << LIMITE_INFERIORE << "C and " << LIMITE_SUPERIORE << "C" << endl;
         return false;
     }
     
-    // Controlla i limiti della temperatura finale
+    // Validate final temperature boundaries
     if (fine < LIMITE_INFERIORE || fine > LIMITE_SUPERIORE) {
-        cout << "Errore: La temperatura finale deve essere tra " 
-             << LIMITE_INFERIORE << "C e " << LIMITE_SUPERIORE << "C" << endl;
+        cout << "Error: Final temperature must be between " 
+             << LIMITE_INFERIORE << "C and " << LIMITE_SUPERIORE << "C" << endl;
         return false;
     }
     
-    // Controlla che la temperatura finale sia maggiore di quella iniziale
+    // Ensure logical order (final temperature must be greater than initial)
     if (fine <= inizio) {
-        cout << "Errore: La temperatura finale deve essere maggiore di quella iniziale" << endl;
+        cout << "Error: Final temperature must be strictly greater than initial temperature" << endl;
         return false;
     }
     
-    // Controlla che lo step size sia positivo
+    // Ensure the step size is a positive non-zero value
     if (passo <= 0) {
-        cout << "Errore: La dimensione del passo deve essere maggiore di zero" << endl;
+        cout << "Error: Step size must be strictly greater than zero" << endl;
         return false;
     }
     
-    // Controlla che lo step size non sia maggiore della differenza di temperature
+    // Ensure step size does not exceed the total temperature delta
     if (passo > (fine - inizio)) {
-        cout << "Errore: La dimensione del passo non può essere maggiore della differenza tra le temperature" << endl;
+        cout << "Error: Step size cannot be greater than the difference between temperatures" << endl;
         return false;
     }
     
@@ -52,32 +52,32 @@ bool validaInput(double inizio, double fine, double passo) {
 int main() {
     double temperaturaIniziale, temperaturaFinale, dimensionePasso;
     
-    cout << "=== CONVERSIONE TEMPERATURE CELSIUS-FAHRENHEIT ===" << endl;
-    cout << "Limiti consentiti: da " << LIMITE_INFERIORE << "C a " << LIMITE_SUPERIORE << "C" << endl << endl;
+    cout << "=== CELSIUS-FAHRENHEIT TEMPERATURE CONVERTER ===" << endl;
+    cout << "Allowed ranges: from " << LIMITE_INFERIORE << "C to " << LIMITE_SUPERIORE << "C" << endl << endl;
     
-    // Input delle temperature
-    cout << "Inserisci la temperatura iniziale (C): ";
+    // Temperature inputs
+    cout << "Enter initial temperature (C): ";
     cin >> temperaturaIniziale;
     
-    cout << "Inserisci la temperatura finale (C): ";
+    cout << "Enter final temperature (C): ";
     cin >> temperaturaFinale;
     
-    cout << "Inserisci la dimensione del passo (C): ";
+    cout << "Enter step size (C): ";
     cin >> dimensionePasso;
     
-    // Validazione dell'input
+    // Parameter validation check
     if (!validaInput(temperaturaIniziale, temperaturaFinale, dimensionePasso)) {
-        return 1; // Termina il programma con codice di errore
+        return 1; // Terminate execution with an error code
     }
     
-    // Stampa l'intestazione della tabella
-    cout << endl << "TABELLA DI CONVERSIONE" << endl;
+    // Print conversion table header
+    cout << endl << "CONVERSION TABLE" << endl;
     cout << "======================" << endl;
     cout << fixed << setprecision(2);
     cout << setw(12) << "Celsius" << setw(12) << "Fahrenheit" << endl;
     cout << setw(12) << "-------" << setw(12) << "----------" << endl;
     
-    // Genera e stampa la tabella
+    // Process and print data matrix rows
     double temperaturaCorrente = temperaturaIniziale;
     while (temperaturaCorrente < temperaturaFinale) {
         double fahrenheit = celsiusToFahrenheit(temperaturaCorrente);
@@ -85,7 +85,7 @@ int main() {
         temperaturaCorrente += dimensionePasso;
     }
     
-    cout << endl << "Conversione completata!" << endl;
+    cout << endl << "Conversion completed successfully!" << endl;
     
     return 0;
 }
