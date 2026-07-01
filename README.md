@@ -41,8 +41,22 @@ Below is a comprehensive breakdown of each source file included in this reposito
 
 #### 📄 Structs_1.cpp
 * **Description:** A lightweight, in-memory simulation of a university relational database designed to map logical connections between student records and academic exam scores.
-* **Technical Focus:** Compound data structure definition (`struct`), arrays of structures, nested loops for database querying using logical primary keys (Matricola), and robust input buffer clearing via `cin.ignore`.
+* **Technical Focus:** Compound data structure definition (`struct`), arrays of structures, nested loops for database querying using logical primary keys (Matricola), and robust input buffer clearing via `ced.ignore`.
+
+#### 📄 SalesFilter.cpp
+* **Description:** An advanced data processing algorithm evaluating online vs. in-store commercial sales records to filter and isolate lower-performing products ("flop products").
+* **Technical Focus:** Dynamic memory allocation for data tracking arrays, single-linked list traversal, head-insertion algorithms, and an optimized double-scan filtering logic based on multi-conditional revenue thresholds.
 
 #### 📄 List.cpp *(Binary Tree)*
 * **Description:** A from-scratch implementation of a non-linear hierarchical data structure (a Binary Tree of integers) complete with depth-first traversal algorithms.
 * **Technical Focus:** Dynamic memory allocation via structure pointers (`Node *`), recursive link establishment (`left`, `right`), and recursive traversal methodologies to print leaf nodes and root components.
+
+---
+
+### 🚀 Compilation & Execution Guide
+
+Every source file is fully autonomous and can be compiled individually from the command line using any compiler compliant with standard `C++11` or higher (e.g., `g++`).
+
+1. **Clone the repository locally:**
+   ```bash
+   git clone [https://github.com/AriannaSiniscalchi/cpp-core-programming.git](https://github.com/AriannaSiniscalchi/cpp-core-programming.git)
